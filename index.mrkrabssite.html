@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Krab Koin ($KRAB)</title>
+  <meta name="description" content="Krab Koin ($KRAB) – A Mr. Krabs–themed meme coin built for degens who love memes, money, and the sea." />
+  <style>
+    :root {
+      --red: #c62828;
+      --gold: #f4c430;
+      --blue: #0d47a1;
+      --dark: #0b132b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(180deg, #06121f, #020617);
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 80px 20px;
+      text-align: center;
+      background: radial-gradient(circle at top, var(--red), var(--dark));
+    }
+
+    header h1 {
+      font-size: 3rem;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 25px;
+      opacity: 0.9;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      background: var(--gold);
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 50px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 10px 30px rgba(244, 196, 48, 0.3);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(244, 196, 48, 0.5);
+    }
+
+    section {
+      padding: 70px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2.2rem;
+      color: var(--gold);
+      margin-bottom: 40px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    .card h3 {
+      color: var(--gold);
+      margin-bottom: 15px;
+    }
+
+    .token {
+      text-align: center;
+      word-break: break-all;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 20px;
+      border-radius: 15px;
+      border: 1px dashed var(--gold);
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      background: #020617;
+      opacity: 0.8;
+      font-size: 0.9rem;
+    }
+
+    footer span {
+      color: var(--gold);
+    }
+  @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .floating {
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 25px;
+    }
+
+    .socials a {
+      text-decoration: none;
+      color: var(--gold);
+      font-weight: bold;
+      border: 1px solid var(--gold);
+      padding: 10px 18px;
+      border-radius: 30px;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .socials a:hover {
+      background: var(--gold);
+      color: #000;
+    }
+
+    .steps {
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .steps li {
+      margin-bottom: 15px;
+    }
+
+    .chart {
+      background: rgba(0,0,0,0.5);
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+      .sticky-buy {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gold);
+      color: #000;
+      padding: 16px 28px;
+      border-radius: 60px;
+      font-weight: bold;
+      z-index: 999;
+      box-shadow: 0 15px 40px rgba(244,196,48,0.6);
+      animation: pulse 1.5s infinite;
+      text-decoration: none;
+    }
+
+    @keyframes pulse {
+      0% { transform: translateX(-50%) scale(1); }
+      50% { transform: translateX(-50%) scale(1.05); }
+      100% { transform: translateX(-50%) scale(1); }
+    }
+
+    .urgency {
+      text-align: center;
+      font-size: 1.2rem;
+      color: var(--gold);
+      margin-top: 15px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .meme {
+      text-align: center;
+      font-size: 1.1rem;
+      margin-top: 20px;
+      opacity: 0.9;
+    }
+
+      .coin {
+      position: fixed;
+      top: -50px;
+      font-size: 24px;
+      animation: fall linear infinite;
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+      }
+    }
+
+    .wiggle {
+      animation: wiggle 1.5s infinite;
+    }
+
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(2deg); }
+      75% { transform: rotate(-2deg); }
+    }
+
+    .meme-wall {
+      text-align: center;
+      font-size: 1.3rem;
+      margin-top: 40px;
+      opacity: 0.95;
+    }
+
+    .meme-wall span {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 18px;
+      border: 1px dashed var(--gold);
+      border-radius: 30px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+      .krabs-gif {
+      width: 180px;
+      margin: 20px auto 0;
+      display: block;
+      animation: float 2.5s ease-in-out infinite;
+      filter: drop-shadow(0 10px 25px rgba(0,0,0,0.5));
+    }
+
+  </style>
+</head>
+<body>
+
+<header>
+    <h1 class="floating wiggle">🦀 KRAB KOIN 🦀</h1>
+    <img class="krabs-gif" src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZGE0aWV3bTI1M3hwaWI4NWhseTRneGRtMnh3c2NvYXQ4OXd0enoxOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/2ZbdsUp7dKNuU/giphy.gif" alt="Mr. Krabs dancing">
+
+    <p style="font-size:1.2rem;font-weight:bold;">
+      <h1 class="floating wiggle">"MONEY MONEY MONEY"</h1>
+    </p>
+    <p class="urgency">Early buyers eat. Late buyers cope.</p>
+    <a class="btn" href="https://pump.fun/9GAH6UxYviKv67AcrRdQyKZ537tjVsxgDFy9URbxpump" target="_blank" style="font-size:1.2rem;">
+      🦀 BUY $KRAB ON PUMP.FUN
+    </a>
+    <div class="meme">"LETS MAKE MONEY BOYO"</div>
+    <div class="socials">
+      <a href="https://x.com/KrabKoin" target="_blank">Twitter</a>
+      <a href="https://t.me/+JP9tqSbDLmRiOTg0" target="_blank">Telegram</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>Why Buy $KRAB?</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>🦀 Greed is the Meme</h3>
+        <p>
+          Krab Koin is inspired by the most profit-obsessed crab ever. No fake promises. Just pure meme-driven speculation.
+        </p>
+      </div>
+      <div class="card">
+        <h3>⚡ Built for Pump.fun</h3>
+        <p>
+          Fair launch. No presale. No insiders. Everyone buys from the same place — Pump.fun.
+        </p>
+      </div>
+      <div class="card">
+        <h3>🔥 Early or Exit Liquidity</h3>
+        <p>
+          You’re either early, or you’re buying someone else’s bags. Choose wisely.
+        </p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:40px;">
+      <a class="btn" href="https://pump.fun/9GAH6UxYviKv67AcrRdQyKZ537tjVsxgDFy9URbxpump" target="_blank">BUY $KRAB</a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Token Info</h2>
+    <div class="token">
+      <p><strong>Name:</strong> Krab Koin</p>
+      <p><strong>Ticker:</strong> $KRAB</p>
+      <p><strong>Network:</strong> Solana</p>
+      <p><strong>Pump.fun Contract:</strong></p>
+      <p>9GAH6UxYviKv67AcrRdQyKZ537tjVsxgDFy9URbxpump</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Live Chart</h2>
+    <div class="chart">
+      <p>📈 Chart powered by Pump.fun</p>
+      <p>(Embed coming soon — link below)</p>
+      <a class="btn" href="https://pump.fun/9GAH6UxYviKv67AcrRdQyKZ537tjVsxgDFy9URbxpump" target="_blank">View Chart</a>
+    </div>
+  </section>
+
+  <section>
+    <h2>How To Buy</h2>
+    <ol class="steps">
+      <li>Download Phantom or another Solana wallet.</li>
+      <li>Buy SOL from an exchange and send it to your wallet.</li>
+      <li>Visit Pump.fun and search for <strong>Krab Koin ($KRAB)</strong>.</li>
+      <li>Swap SOL for KRAB and embrace the crab mentality.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Vibes</h2>
+    <div class="meme-wall">
+      <span>Money is everything</span>
+      <span>Be the crab</span>
+      <span>🦀 > 🐳</span>
+      <span>Early buyers eat</span>
+      <span>Late buyers cope</span>
+      <span>I like money</span>
+    </div>
+    <div style="text-align:center;margin-top:40px;">
+      <a class="btn wiggle" href="https://pump.fun/9GAH6UxYviKv67AcrRdQyKZ537tjVsxgDFy9URbxpump" target="_blank">🦀 BUY $KRAB</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>
+      ⚠️ Krab Koin is a meme coin with no intrinsic value or expectation of financial return. This is not financial advice.
+    </p>
+    <p>© 2026 <span>Krab Koin</span>. All crabs reserved.</p>
+  </footer>
+
+<script>
+  const connectBtn = document.getElementById('connectWallet');
+  const walletStatus = document.getElementById('walletStatus');
+
+  async function connectPhantom() {
+    if (window.solana && window.solana.isPhantom) {
+      try {
+        const resp = await window.solana.connect();
+        walletStatus.innerText = `Wallet connected: ${resp.publicKey.toString().slice(0,4)}...${resp.publicKey.toString().slice(-4)}`;
+        connectBtn.innerText = '✅ Phantom Connected';
+        connectBtn.disabled = true;
+      } catch (err) {
+        walletStatus.innerText = 'Connection rejected.';
+      }
+    } else {
+      window.open('https://phantom.app/', '_blank');
+    }
+  }
+
+  connectBtn.addEventListener('click', connectPhantom);
+</script>
+</body>
+</html>
